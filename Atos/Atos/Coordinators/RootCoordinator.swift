@@ -47,7 +47,7 @@ internal final class RootCoordinator: NSObject, Coordinator {
 
     private func setupTabBarController() {
         // Main screen
-        let mainViewModel = MainViewModel()
+        let mainViewModel = MainViewModel(userService: userService)
         let mainViewController = MainViewController(
             viewModel: mainViewModel,
             delegate: self

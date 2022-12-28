@@ -32,6 +32,7 @@
 		6B23F579295CB06700E8A1ED /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B23F578295CB06700E8A1ED /* UserViewModel.swift */; };
 		6B23F57B295CB75700E8A1ED /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B23F57A295CB75700E8A1ED /* TabBarItems.swift */; };
 		6B45008A295CBCDA0054CE19 /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B450089295CBCDA0054CE19 /* UIColor+extensions.swift */; };
+		6B45008E295CC6AE0054CE19 /* UINavigationBar+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45008D295CC6AE0054CE19 /* UINavigationBar+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		6B23F578295CB06700E8A1ED /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		6B23F57A295CB75700E8A1ED /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		6B450089295CBCDA0054CE19 /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
+		6B45008D295CC6AE0054CE19 /* UINavigationBar+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				6B23F55B295C90BC00E8A1ED /* UIWindow+extensions.swift */,
 				6B450089295CBCDA0054CE19 /* UIColor+extensions.swift */,
+				6B45008D295CC6AE0054CE19 /* UINavigationBar+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				6B23F55E295C953000E8A1ED /* LoginViewModel.swift in Sources */,
 				6B23F561295C9FA500E8A1ED /* MainViewController.swift in Sources */,
 				6B23F564295C9FB900E8A1ED /* MainViewModel.swift in Sources */,
+				6B45008E295CC6AE0054CE19 /* UINavigationBar+extensions.swift in Sources */,
 				6B23F56C295CA8D600E8A1ED /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

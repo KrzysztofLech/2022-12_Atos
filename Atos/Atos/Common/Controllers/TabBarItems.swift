@@ -22,6 +22,7 @@ internal enum TabBarItem: Int, CaseIterable {
         let item = UITabBarItem()
         item.title = nil
         item.image = iconImage
+        item.imageInsets = UIEdgeInsets(top: 13, left: 0, bottom: -13, right: 0)
         item.tag = self.rawValue
         return item
     }

@@ -17,6 +17,13 @@ internal class MainViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationItem.title = viewModel.title
+        navigationItem.backButtonTitle = viewModel.backButtonTitle
+    }
+
     required internal init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

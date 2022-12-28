@@ -21,6 +21,12 @@ internal class DetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationItem.title = viewModel.title
+    }
+
     deinit {
         Logger.log(info: "Deinit DetailsViewController")
     }

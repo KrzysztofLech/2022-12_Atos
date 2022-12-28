@@ -10,7 +10,19 @@ internal class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     internal func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        setupNavigationBar()
         rootCoordinator = RootCoordinator(windowScene: windowScene)
         rootCoordinator?.start()
+    }
+}
+
+private extension SceneDelegate {
+    func setupNavigationBar() {
+        let appAppearance = UINavigationBar.appAppearance()
+        UINavigationBar.appearance().standardAppearance = appAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appAppearance
+        UINavigationBar.appearance().compactAppearance = appAppearance
+        UINavigationBar.appearance().compactScrollEdgeAppearance = appAppearance
     }
 }

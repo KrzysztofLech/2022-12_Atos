@@ -4,9 +4,22 @@
 import Foundation
 
 internal protocol MainViewModelProtocol {
-
+    var title: String { get }
+    var backButtonTitle: String { get }
 }
 
 internal class MainViewModel: MainViewModelProtocol {
-    
+    private let userService: UserServiceProtocol
+
+    internal init(userService: UserServiceProtocol) {
+        self.userService = userService
+    }
+
+    internal var title: String {
+        return String(format: Strings.mainScreenTitle, userService.name)
+    }
+
+    internal var backButtonTitle: String {
+        return Strings.backButtonTitle
+    }
 }
