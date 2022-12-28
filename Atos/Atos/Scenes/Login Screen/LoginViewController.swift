@@ -3,8 +3,18 @@
 
 import UIKit
 
+internal protocol LoginViewControllerDelegate: AnyObject {
+    func logged()
+}
+
 internal class LoginViewController: UIViewController {
-    internal init() {
+    @IBOutlet private var loginButton: UIButton!
+    private let viewModel: LoginViewModelProtocol
+    private weak var delegate: LoginViewControllerDelegate?
+
+    internal init(viewModel: LoginViewModelProtocol, delegate: LoginViewControllerDelegate) {
+        self.viewModel = viewModel
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -12,7 +22,18 @@ internal class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    deinit {
+        Logger.log(info: "Deinit LoginViewController")
+    }
+
     override internal func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+
+    @IBAction private func didTapOnLoginButton() {
+        viewModel.login {
+            delegate?.logged()
+        }
     }
 }
