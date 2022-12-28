@@ -13,6 +13,7 @@ internal final class RootCoordinator: NSObject, Coordinator {
     private let userService: UserServiceProtocol
 
     private var loginViewController: UIViewController?
+    private var tabBarController: TabBarController?
     private var mainViewNavigationController: UINavigationController?
 
     // MARK: - Init -
@@ -38,14 +39,30 @@ internal final class RootCoordinator: NSObject, Coordinator {
         window.set(rootViewController: loginViewController)
     }
 
-    private func shoWMainScreen(completion: (() -> Void)? = nil) {
-        let viewModel = MainViewModel()
+    private func showMainScreen(completion: (() -> Void)? = nil) {
+        setupTabBarController()
+        guard let tabBarController else { return }
+        window.set(rootViewController: tabBarController, completion: completion)
+    }
+
+    private func setupTabBarController() {
+        // Main screen
+        let mainViewModel = MainViewModel()
         let mainViewController = MainViewController(
-            viewModel: viewModel,
+            viewModel: mainViewModel,
             delegate: self
         )
-        mainViewNavigationController = .init(rootViewController: mainViewController)
-        window.set(rootViewController: mainViewNavigationController, completion: completion)
+        let mainViewNavigationController = UINavigationController(rootViewController: mainViewController)
+        self.mainViewNavigationController = mainViewNavigationController
+        mainViewController.tabBarItem = TabBarItem.main.item
+
+        // User screen
+        let userViewModel = UserViewModel()
+        let userViewController = UserViewController(viewModel: userViewModel)
+        userViewController.tabBarItem = TabBarItem.user.item
+
+        tabBarController = TabBarController()
+        tabBarController?.viewControllers = [mainViewNavigationController, userViewController]
     }
 
     private func showDetailsScreen() {
@@ -65,7 +82,7 @@ internal final class RootCoordinator: NSObject, Coordinator {
 
 extension RootCoordinator: LoginViewControllerDelegate {
     internal func logged() {
-        shoWMainScreen() { [weak self] in
+        showMainScreen() { [weak self] in
             self?.loginViewController = nil
         }
     }
