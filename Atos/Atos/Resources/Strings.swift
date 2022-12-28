@@ -4,6 +4,14 @@
 import Foundation
 
 internal enum Strings {
-    internal static let backButtonTitle = "Back"
-    internal static let mainScreenTitle = "News's for %@"
+    internal enum LoginScreen {
+        internal static let loginPlaceholder = "Login"
+        internal static let passwordPlaceholder = "Password"
+        internal static let loginButtonTitle = "LOG IN"
+    }
+
+    internal enum MainScreen {
+        internal static let backButtonTitle = "Back"
+        internal static let mainScreenTitle = "News's for %@"
+    }
 }

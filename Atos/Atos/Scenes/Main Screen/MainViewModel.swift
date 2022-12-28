@@ -16,10 +16,10 @@ internal class MainViewModel: MainViewModelProtocol {
     }
 
     internal var title: String {
-        return String(format: Strings.mainScreenTitle, userService.name)
+        return String(format: Strings.MainScreen.mainScreenTitle, userService.name)
     }
 
     internal var backButtonTitle: String {
-        return Strings.backButtonTitle
+        return Strings.MainScreen.backButtonTitle
     }
 }

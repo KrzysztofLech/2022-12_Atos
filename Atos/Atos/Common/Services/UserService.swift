@@ -17,3 +17,22 @@ internal class UserService: UserServiceProtocol {
         self.isLogged = false
     }
 }
+
+internal struct User {
+    internal let login: String
+    internal let password: String
+}
+
+extension User {
+    internal static let authorizedUsers: [User] = [
+        .init(login: "Admin", password: "Admin1234"),
+        .init(login: "Kasia", password: "Kasia1234")
+    ]
+
+    internal var isNotAuthorized: Bool {
+        let users = User.authorizedUsers.filter { authorizedUser in
+            authorizedUser.login == login.lowercased() && authorizedUser.password == password
+        }
+        return users.isEmpty
+    }
+}

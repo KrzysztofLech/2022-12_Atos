@@ -8,7 +8,11 @@ internal protocol LoginViewControllerDelegate: AnyObject {
 }
 
 internal class LoginViewController: UIViewController {
+    @IBOutlet private var loginTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
     @IBOutlet private var loginButton: UIButton!
+
+
     private let viewModel: LoginViewModelProtocol
     private weak var delegate: LoginViewControllerDelegate?
 
@@ -28,8 +32,17 @@ internal class LoginViewController: UIViewController {
 
     override internal func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
     }
 
+    private func setupView() {
+        loginTextField.placeholder = Strings.LoginScreen.loginPlaceholder
+        passwordTextField.placeholder = Strings.LoginScreen.passwordPlaceholder
+        loginTextField.becomeFirstResponder()
+
+        loginButton.layer.cornerRadius = 6
+        loginButton.setTitle(Strings.LoginScreen.loginButtonTitle, for: .normal)
+    }
 
     @IBAction private func didTapOnLoginButton() {
         viewModel.login {
