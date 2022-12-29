@@ -88,7 +88,15 @@ extension RootCoordinator: LoginViewControllerDelegate {
     }
 
     internal func loginWithError(_ error: AtosError) {
-        print(error.title)
+        let alerController = UIAlertController(
+            title: error.title,
+            message: error.message,
+            preferredStyle: .alert
+        )
+        let alertAction = UIAlertAction(title: Strings.alertActionOkTitle, style: .default)
+        alerController.addAction(alertAction)
+
+        loginViewController?.present(alerController, animated: true)
     }
 }
 

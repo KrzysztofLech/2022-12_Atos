@@ -10,7 +10,7 @@ internal enum Strings {
         internal static let loginButtonTitle = "LOG IN"
 
         internal enum Errors {
-            internal static let emptyFieldsTitle = "Login and Password must not be empty"
+            internal static let emptyFieldsTitle = "Login and Password\nmust not be empty"
             internal static let wrongCredentialsTitle = "Wrong credentials"
             internal static let message = "Login failed!"
         }
@@ -20,4 +20,6 @@ internal enum Strings {
         internal static let backButtonTitle = "Back"
         internal static let mainScreenTitle = "News's for %@"
     }
+
+    internal static let alertActionOkTitle = "OK"
 }
