@@ -4,35 +4,30 @@
 import Foundation
 
 internal protocol UserServiceProtocol {
-    var isLogged: Bool { get set }
     var name: String { get }
+    var imageName: String { get }
+    var lastLoginDate: String { get }
 }
 
 internal class UserService: UserServiceProtocol {
-    internal var isLogged: Bool
+    private let user: User
+    private let loginDate: Date
 
-    internal var name = "UserName"
-
-    internal init() {
-        self.isLogged = false
+    internal init(user: User) {
+        self.user = user
+        self.loginDate = Date()
     }
-}
 
-internal struct User {
-    internal let login: String
-    internal let password: String
-}
+    internal var name: String {
+        return user.login
+    }
 
-extension User {
-    internal static let authorizedUsers: [User] = [
-        .init(login: "Admin", password: "Admin1234"),
-        .init(login: "Kasia", password: "Kasia1234")
-    ]
+    internal var imageName: String {
+        return user.imageName
+    }
 
-    internal var isNotAuthorized: Bool {
-        let users = User.authorizedUsers.filter { authorizedUser in
-            authorizedUser.login.lowercased() == login.lowercased() && authorizedUser.password == password
-        }
-        return users.isEmpty
+    internal var lastLoginDate: String {
+        let formatter = DateFormatter.atosDate
+        return formatter.string(from: loginDate)
     }
 }

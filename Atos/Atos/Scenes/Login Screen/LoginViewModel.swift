@@ -7,33 +7,26 @@ internal protocol LoginViewModelProtocol {
     var loginPlaceholder: String { get }
     var passwordPlaceholder: String { get }
     var loginButtonTitle: String { get }
-    func login(login: String?, password: String?, completion: (AtosError?) -> Void)
+    func login(login: String?, password: String?, completion: (Result<User, AtosError>) -> Void)
 }
 
 internal class LoginViewModel: LoginViewModelProtocol {
-    private var userService: UserServiceProtocol
-
-    internal init(userService: UserServiceProtocol) {
-        self.userService = userService
-    }
-
     internal let loginPlaceholder = Strings.LoginScreen.loginPlaceholder
     internal let passwordPlaceholder = Strings.LoginScreen.passwordPlaceholder
     internal let loginButtonTitle = Strings.LoginScreen.loginButtonTitle
 
-    internal func login(login: String?, password: String?, completion: (AtosError?) -> Void) {
+    internal func login(login: String?, password: String?, completion: (Result<User, AtosError>) -> Void) {
         guard let login, let password, !login.isEmpty, !password.isEmpty else {
-            completion(AtosErrorType.emptyLoginField.error)
+            completion(.failure(AtosErrorType.emptyLoginField.error))
             return
         }
 
         let user = User(login: login, password: password)
         guard !user.isNotAuthorized else {
-            completion(AtosErrorType.wrongCredentials.error)
+            completion(.failure(AtosErrorType.wrongCredentials.error))
             return
         }
 
-        userService.isLogged = true
-        completion(nil)
+        completion(.success(user))
     }
 }

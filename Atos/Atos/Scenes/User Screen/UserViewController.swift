@@ -4,6 +4,12 @@
 import UIKit
 
 internal class UserViewController: UIViewController {
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var nameTitleLabel: UILabel!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var lastLoginTitleLabel: UILabel!
+    @IBOutlet private var lastLoginDateLabel: UILabel!
+
     private let viewModel: UserViewModelProtocol
 
     internal init(viewModel: UserViewModelProtocol) {
@@ -21,5 +27,17 @@ internal class UserViewController: UIViewController {
 
     override internal func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+
+    private func setupView() {
+        navigationItem.title = viewModel.title
+        imageView.image = UIImage(named: viewModel.userImageName)
+
+        nameTitleLabel.text = viewModel.userNameTitle
+        nameLabel.text = viewModel.userName
+
+        lastLoginTitleLabel.text = viewModel.lastLoginTitle
+        lastLoginDateLabel.text = viewModel.lastLoginDate
     }
 }

@@ -4,6 +4,8 @@
 import Foundation
 
 internal enum Strings {
+    internal static let alertActionOkTitle = "OK"
+
     internal enum LoginScreen {
         internal static let loginPlaceholder = "Login"
         internal static let passwordPlaceholder = "Password"
@@ -21,5 +23,8 @@ internal enum Strings {
         internal static let mainScreenTitle = "News's for %@"
     }
 
-    internal static let alertActionOkTitle = "OK"
+    internal enum UserScreen {
+        internal static let nameTitle = "Name:"
+        internal static let lastLoginTitle = "Last login:"
+    }
 }

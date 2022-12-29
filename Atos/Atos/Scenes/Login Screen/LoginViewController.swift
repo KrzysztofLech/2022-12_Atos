@@ -4,7 +4,7 @@
 import UIKit
 
 internal protocol LoginViewControllerDelegate: AnyObject {
-    func logged()
+    func logged(with user: User)
     func loginWithError(_ error: AtosError)
 }
 
@@ -50,11 +50,12 @@ internal class LoginViewController: UIViewController {
         let password = passwordTextField.text
         passwordTextField.isSecureTextEntry = true
 
-        viewModel.login(login: loginTextField.text, password: password) { atosError in
-            if let atosError {
+        viewModel.login(login: loginTextField.text, password: password) { result in
+            switch result {
+            case .success(let user):
+                delegate?.logged(with: user)
+            case .failure(let atosError):
                 delegate?.loginWithError(atosError)
-            } else {
-                delegate?.logged()
             }
         }
     }

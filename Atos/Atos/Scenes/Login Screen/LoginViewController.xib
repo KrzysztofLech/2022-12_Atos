@@ -31,7 +31,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7b-tC-DQU" userLabel="Login Container" customClass="FrameView" customModule="Atos" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="361" height="52"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mLb-kM-0iu">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Kasia" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mLb-kM-0iu">
                                     <rect key="frame" x="17" y="0.0" width="327" height="52"/>
                                     <color key="textColor" name="black"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -58,7 +58,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NS6-gq-LyE" userLabel="Password Container" customClass="FrameView" customModule="Atos" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="68" width="361" height="52"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MyV-OB-Oac">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Kasia1234" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MyV-OB-Oac">
                                     <rect key="frame" x="17" y="0.0" width="327" height="52"/>
                                     <color key="textColor" name="black"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>

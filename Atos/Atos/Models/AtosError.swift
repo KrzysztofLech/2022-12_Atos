@@ -1,4 +1,4 @@
-//  Errors.swift
+//  AtosError.swift
 //  Created by Krzysztof Lech on 29/12/2022.
 
 import Foundation
@@ -27,7 +27,7 @@ internal enum AtosErrorType {
     }
 }
 
-internal struct AtosError {
+internal struct AtosError: Error {
     let title: String
     let message: String
 }
