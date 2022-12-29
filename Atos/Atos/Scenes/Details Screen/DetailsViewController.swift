@@ -1,6 +1,7 @@
 //  DetailsViewController.swift
 //  Created by Krzysztof Lech on 28/12/2022.
 
+import Kingfisher
 import UIKit
 
 internal class DetailsViewController: UIViewController {
@@ -30,6 +31,7 @@ internal class DetailsViewController: UIViewController {
     override internal func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        showImage()
     }
 }
 
@@ -43,6 +45,10 @@ private extension DetailsViewController {
         descriptionTextLabel.text = viewModel.description
         publishedTitleLabel.text = Strings.DetailsScreen.publishedTitle
         publishedDateLabel.text = viewModel.publishedAt
-//        imageView
+    }
+
+    func showImage() {
+        guard let imageUrl = viewModel.urlToImage else { return }
+        imageView.kf.setImage(with: imageUrl)
     }
 }
