@@ -5,6 +5,7 @@ import UIKit
 
 internal protocol LoginViewControllerDelegate: AnyObject {
     func logged()
+    func loginWithError(_ error: AtosError)
 }
 
 internal class LoginViewController: UIViewController {
@@ -36,17 +37,25 @@ internal class LoginViewController: UIViewController {
     }
 
     private func setupView() {
-        loginTextField.placeholder = Strings.LoginScreen.loginPlaceholder
-        passwordTextField.placeholder = Strings.LoginScreen.passwordPlaceholder
+        loginTextField.placeholder = viewModel.loginPlaceholder
+        passwordTextField.placeholder = viewModel.passwordPlaceholder
         loginTextField.becomeFirstResponder()
 
         loginButton.layer.cornerRadius = 6
-        loginButton.setTitle(Strings.LoginScreen.loginButtonTitle, for: .normal)
+        loginButton.setTitle(viewModel.loginButtonTitle, for: .normal)
     }
 
     @IBAction private func didTapOnLoginButton() {
-        viewModel.login {
-            delegate?.logged()
+        passwordTextField.isSecureTextEntry = false
+        let password = passwordTextField.text
+        passwordTextField.isSecureTextEntry = true
+
+        viewModel.login(login: loginTextField.text, password: password) { atosError in
+            if let atosError {
+                delegate?.loginWithError(atosError)
+            } else {
+                delegate?.logged()
+            }
         }
     }
 }

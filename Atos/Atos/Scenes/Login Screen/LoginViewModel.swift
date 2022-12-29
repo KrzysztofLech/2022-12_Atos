@@ -4,7 +4,10 @@
 import Foundation
 
 internal protocol LoginViewModelProtocol {
-    func login(completion: () -> Void)
+    var loginPlaceholder: String { get }
+    var passwordPlaceholder: String { get }
+    var loginButtonTitle: String { get }
+    func login(login: String?, password: String?, completion: (AtosError?) -> Void)
 }
 
 internal class LoginViewModel: LoginViewModelProtocol {
@@ -14,8 +17,23 @@ internal class LoginViewModel: LoginViewModelProtocol {
         self.userService = userService
     }
 
-    internal func login(completion: () -> Void) {
+    internal let loginPlaceholder = Strings.LoginScreen.loginPlaceholder
+    internal let passwordPlaceholder = Strings.LoginScreen.passwordPlaceholder
+    internal let loginButtonTitle = Strings.LoginScreen.loginButtonTitle
+
+    internal func login(login: String?, password: String?, completion: (AtosError?) -> Void) {
+        guard let login, let password, !login.isEmpty, !password.isEmpty else {
+            completion(AtosErrorType.emptyLoginField.error)
+            return
+        }
+
+        let user = User(login: login, password: password)
+        guard !user.isNotAuthorized else {
+            completion(AtosErrorType.wrongCredentials.error)
+            return
+        }
+
         userService.isLogged = true
-        completion()
+        completion(nil)
     }
 }

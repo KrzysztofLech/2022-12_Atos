@@ -8,6 +8,12 @@ internal enum Strings {
         internal static let loginPlaceholder = "Login"
         internal static let passwordPlaceholder = "Password"
         internal static let loginButtonTitle = "LOG IN"
+
+        internal enum Errors {
+            internal static let emptyFieldsTitle = "Login and Password must not be empty"
+            internal static let wrongCredentialsTitle = "Wrong credentials"
+            internal static let message = "Login failed!"
+        }
     }
 
     internal enum MainScreen {

@@ -31,7 +31,7 @@ extension User {
 
     internal var isNotAuthorized: Bool {
         let users = User.authorizedUsers.filter { authorizedUser in
-            authorizedUser.login == login.lowercased() && authorizedUser.password == password
+            authorizedUser.login.lowercased() == login.lowercased() && authorizedUser.password == password
         }
         return users.isEmpty
     }

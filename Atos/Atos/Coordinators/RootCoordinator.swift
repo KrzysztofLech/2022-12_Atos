@@ -86,6 +86,10 @@ extension RootCoordinator: LoginViewControllerDelegate {
             self?.loginViewController = nil
         }
     }
+
+    internal func loginWithError(_ error: AtosError) {
+        print(error.title)
+    }
 }
 
 extension RootCoordinator: MainViewControllerDelegate {
