@@ -29,8 +29,10 @@ internal class UserViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+}
 
-    private func setupView() {
+private extension UserViewController {
+    func setupView() {
         navigationItem.title = viewModel.title
         imageView.image = UIImage(named: viewModel.userImageName)
 

@@ -6,8 +6,10 @@ import Foundation
 internal protocol MainViewModelProtocol {
     var title: String { get }
     var backButtonTitle: String { get }
+    var articlesCount: Int { get }
 
-    func getData(completion: @escaping (AtosError?) -> Void)
+    func getArticles(completion: @escaping (AtosError?) -> Void)
+    func getArticle(atIndex indexPath: IndexPath) -> ArticleViewModel
 }
 
 internal class MainViewModel: MainViewModelProtocol {
@@ -28,7 +30,12 @@ internal class MainViewModel: MainViewModelProtocol {
         return Strings.MainScreen.backButtonTitle
     }
 
-    internal func getData(completion: @escaping (AtosError?) -> Void) {
+    internal var articlesCount: Int {
+        return articles.count
+    }
+
+    internal func getArticles(completion: @escaping (AtosError?) -> Void) {
+
         dataService.fetchData { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -36,10 +43,15 @@ internal class MainViewModel: MainViewModelProtocol {
                     Logger.log(okText: "Downloaded \(articles.articles.count) articles")
                     self?.articles = articles.articles
                     completion(nil)
-                case .failure:
+                case .failure(let error as NetworkingError):
+                    Logger.log(error: error.rawValue)
                     completion(AtosErrorType.networking.error)
                 }
             }
         }
+    }
+
+    internal func getArticle(atIndex indexPath: IndexPath) -> ArticleViewModel {
+        return ArticleViewModel(article: articles[indexPath.row])
     }
 }

@@ -41,6 +41,9 @@
 		6B45009D295D92F60054CE19 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45009C295D92F60054CE19 /* Article.swift */; };
 		6B45009F295D93D70054CE19 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45009E295D93D70054CE19 /* NetworkingError.swift */; };
 		6B4500A1295D9F7E0054CE19 /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4500A0295D9F7E0054CE19 /* Articles.swift */; };
+		6B4500A5295DA4AD0054CE19 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4500A3295DA4AD0054CE19 /* ArticleTableViewCell.swift */; };
+		6B4500A6295DA4AD0054CE19 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B4500A4295DA4AD0054CE19 /* ArticleTableViewCell.xib */; };
+		6B4500A8295DAB110054CE19 /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4500A7295DAB110054CE19 /* UIView+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,9 @@
 		6B45009C295D92F60054CE19 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		6B45009E295D93D70054CE19 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		6B4500A0295D9F7E0054CE19 /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
+		6B4500A3295DA4AD0054CE19 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		6B4500A4295DA4AD0054CE19 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
+		6B4500A7295DAB110054CE19 /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +195,7 @@
 				6B450089295CBCDA0054CE19 /* UIColor+extensions.swift */,
 				6B45008D295CC6AE0054CE19 /* UINavigationBar+extensions.swift */,
 				6B450098295D8E4F0054CE19 /* DateFormatter+extensions.swift */,
+				6B4500A7295DAB110054CE19 /* UIView+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -218,6 +225,7 @@
 		6B23F555295C8DB200E8A1ED /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
+				6B4500A2295DA4840054CE19 /* Table View Cell */,
 				6B23F563295C9FB900E8A1ED /* MainViewModel.swift */,
 				6B23F55F295C9FA500E8A1ED /* MainViewController.swift */,
 				6B23F560295C9FA500E8A1ED /* MainViewController.xib */,
@@ -269,6 +277,15 @@
 				6B450092295CED750054CE19 /* FrameView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6B4500A2295DA4840054CE19 /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6B4500A3295DA4AD0054CE19 /* ArticleTableViewCell.swift */,
+				6B4500A4295DA4AD0054CE19 /* ArticleTableViewCell.xib */,
+			);
+			path = "Table View Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +346,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B4500A6295DA4AD0054CE19 /* ArticleTableViewCell.xib in Resources */,
 				6B23F577295CB00C00E8A1ED /* UserViewController.xib in Resources */,
 				6B23F55A295C8E9200E8A1ED /* LoginViewController.xib in Resources */,
 				6B23F53F295C875000E8A1ED /* LaunchScreen.storyboard in Resources */,
@@ -358,6 +376,7 @@
 				6B23F56F295CA8F400E8A1ED /* DetailsViewModel.swift in Sources */,
 				6B450099295D8E4F0054CE19 /* DateFormatter+extensions.swift in Sources */,
 				6B450097295D77640054CE19 /* User.swift in Sources */,
+				6B4500A5295DA4AD0054CE19 /* ArticleTableViewCell.swift in Sources */,
 				6B23F533295C875000E8A1ED /* AppDelegate.swift in Sources */,
 				6B4500A1295D9F7E0054CE19 /* Articles.swift in Sources */,
 				6B23F535295C875000E8A1ED /* SceneDelegate.swift in Sources */,
@@ -367,6 +386,7 @@
 				6B23F55C295C90BC00E8A1ED /* UIWindow+extensions.swift in Sources */,
 				6B45009F295D93D70054CE19 /* NetworkingError.swift in Sources */,
 				6B23F567295CA28D00E8A1ED /* UserService.swift in Sources */,
+				6B4500A8295DAB110054CE19 /* UIView+extensions.swift in Sources */,
 				6B45009D295D92F60054CE19 /* Article.swift in Sources */,
 				6B23F55E295C953000E8A1ED /* LoginViewModel.swift in Sources */,
 				6B23F561295C9FA500E8A1ED /* MainViewController.swift in Sources */,

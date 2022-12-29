@@ -3,28 +3,16 @@
 
 import UIKit
 
-internal protocol DetailsViewControllerDelegate: AnyObject {
-    func close()
-}
-
 internal class DetailsViewController: UIViewController {
     private let viewModel: DetailsViewModelProtocol
-    private weak var delegate: DetailsViewControllerDelegate?
 
-    internal init(viewModel: DetailsViewModelProtocol, delegate: DetailsViewControllerDelegate) {
+    internal init(viewModel: DetailsViewModelProtocol) {
         self.viewModel = viewModel
-        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
 
     required internal init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        navigationItem.title = viewModel.title
     }
 
     deinit {
@@ -33,5 +21,10 @@ internal class DetailsViewController: UIViewController {
 
     override internal func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = viewModel.title
     }
 }

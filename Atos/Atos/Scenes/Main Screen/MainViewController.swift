@@ -4,13 +4,13 @@
 import UIKit
 
 internal protocol MainViewControllerDelegate: AnyObject {
-    func showDetails()
+    func showArticleDetails(_ article: ArticleViewModel)
+    func showAlert(with error: AtosError, completion: (() -> Void)?)
 }
 
 internal class MainViewController: UIViewController {
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
-
-
+    @IBOutlet private var tableView: UITableView!
 
     private let viewModel: MainViewModelProtocol
     private weak var delegate: MainViewControllerDelegate?
@@ -19,18 +19,6 @@ internal class MainViewController: UIViewController {
         self.viewModel = viewModel
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        navigationItem.title = viewModel.title
-        navigationItem.backButtonTitle = viewModel.backButtonTitle
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        getData()
     }
 
     required internal init?(coder: NSCoder) {
@@ -43,21 +31,55 @@ internal class MainViewController: UIViewController {
 
     override internal func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        getData()
+    }
+}
+
+private extension MainViewController {
+    func setupView() {
+        navigationItem.title = viewModel.title
+        navigationItem.backButtonTitle = viewModel.backButtonTitle
+
+        tableView.register(
+            UINib(nibName: ArticleTableViewCell.className, bundle: nil),
+            forCellReuseIdentifier: ArticleTableViewCell.className
+        )
     }
 
-    private func getData() {
-        viewModel.getData { [weak self] atosError in
+    func getData() {
+        activityIndicator.isHidden = false
+        viewModel.getArticles { [weak self] atosError in
             self?.activityIndicator.isHidden = true
             if let atosError {
-                print(atosError.title)
+                self?.delegate?.showAlert(with: atosError) {
+                    self?.getData()
+                }
             } else {
-                /// pokazać dane
+                self?.tableView.reloadData()
             }
         }
     }
+}
 
+extension MainViewController: UITableViewDataSource {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.articlesCount
+    }
 
-    @IBAction private func didTapOnItem() {
-        delegate?.showDetails()
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleTableViewCell.className, for: indexPath) as? ArticleTableViewCell
+        else { return UITableViewCell() }
+
+        let article = viewModel.getArticle(atIndex: indexPath)
+        cell.configure(with: article)
+        return cell
+    }
+}
+
+extension MainViewController: UITableViewDelegate {
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let article = viewModel.getArticle(atIndex: indexPath)
+        delegate?.showArticleDetails(article)
     }
 }

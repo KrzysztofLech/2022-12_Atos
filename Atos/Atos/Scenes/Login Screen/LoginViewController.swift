@@ -5,14 +5,13 @@ import UIKit
 
 internal protocol LoginViewControllerDelegate: AnyObject {
     func logged(with user: User)
-    func loginWithError(_ error: AtosError)
+    func showAlert(with error: AtosError, completion: (() -> Void)?)
 }
 
 internal class LoginViewController: UIViewController {
     @IBOutlet private var loginTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
     @IBOutlet private var loginButton: UIButton!
-
 
     private let viewModel: LoginViewModelProtocol
     private weak var delegate: LoginViewControllerDelegate?
@@ -35,8 +34,10 @@ internal class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+}
 
-    private func setupView() {
+private extension LoginViewController {
+    func setupView() {
         loginTextField.placeholder = viewModel.loginPlaceholder
         passwordTextField.placeholder = viewModel.passwordPlaceholder
         loginTextField.becomeFirstResponder()
@@ -45,7 +46,8 @@ internal class LoginViewController: UIViewController {
         loginButton.setTitle(viewModel.loginButtonTitle, for: .normal)
     }
 
-    @IBAction private func didTapOnLoginButton() {
+    @IBAction
+    func didTapOnLoginButton() {
         passwordTextField.isSecureTextEntry = false
         let password = passwordTextField.text
         passwordTextField.isSecureTextEntry = true
@@ -55,7 +57,7 @@ internal class LoginViewController: UIViewController {
             case .success(let user):
                 delegate?.logged(with: user)
             case .failure(let atosError):
-                delegate?.loginWithError(atosError)
+                delegate?.showAlert(with: atosError, completion: nil)
             }
         }
     }

@@ -8,15 +8,11 @@ protocol DataServiceProtocol {
 }
 
 final class DataService: DataServiceProtocol {
-
-    private enum Constants {
-        static let endpoint = "https://newsapi.org/v2/top-headlines?country=us&apiKey=8906011f7dc14fddbbdf5bbc47b93e3a"
-    }
-
+    private let endpoint = "https://newsapi.org/v2/top-headlines?country=us&apiKey=8906011f7dc14fddbbdf5bbc47b93e3a"
     private var downloadTask: URLSessionDownloadTask?
 
-    func fetchData(completion: @escaping (Result<Articles, NetworkingError>) -> ()) {
-        guard let url = URL(string: Constants.endpoint) else {
+    internal func fetchData(completion: @escaping (Result<Articles, NetworkingError>) -> ()) {
+        guard let url = URL(string: endpoint) else {
             completion(.failure(.url))
             return
         }

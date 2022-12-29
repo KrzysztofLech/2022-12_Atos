@@ -72,18 +72,26 @@ internal final class RootCoordinator: NSObject, Coordinator {
         tabBarController?.viewControllers = [mainViewNavigationController, userViewNavigationController]
     }
 
-    private func showDetailsScreen() {
-        let viewModel = DetailsViewModel()
-        let detailsViewController = DetailsViewController(
-            viewModel: viewModel,
-            delegate: self
-        )
-
+    private func showDetailsScreen(article: ArticleViewModel) {
+        let viewModel = DetailsViewModel(article: article)
+        let detailsViewController = DetailsViewController(viewModel: viewModel)
         mainViewNavigationController?.pushViewController(detailsViewController, animated: true)
     }
 
-    private func hideDetailsScreen() {
-        print("Close")
+    internal func showAlert(with error: AtosError, completion: (() -> Void)?) {
+        let presenter = mainViewNavigationController != nil ? mainViewNavigationController : loginViewController
+
+        let alerController = UIAlertController(
+            title: error.title,
+            message: error.message,
+            preferredStyle: .alert
+        )
+        let alertAction = UIAlertAction(title: Strings.alertActionOkTitle, style: .default) {_ in
+            completion?()
+        }
+        alerController.addAction(alertAction)
+
+        presenter?.present(alerController, animated: true)
     }
 }
 
@@ -109,13 +117,7 @@ extension RootCoordinator: LoginViewControllerDelegate {
 }
 
 extension RootCoordinator: MainViewControllerDelegate {
-    internal func showDetails() {
-        showDetailsScreen()
-    }
-}
-
-extension RootCoordinator: DetailsViewControllerDelegate {
-    internal func close() {
-        hideDetailsScreen()
+    internal func showArticleDetails(_ article: ArticleViewModel) {
+        showDetailsScreen(article: article)
     }
 }

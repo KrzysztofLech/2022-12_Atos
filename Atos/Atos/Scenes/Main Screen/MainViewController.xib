@@ -5,12 +5,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Atos" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="AFd-v2-A4R" id="Ohb-qR-i55"/>
+                <outlet property="tableView" destination="wah-O7-ewp" id="Atc-dW-XHY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,6 +21,15 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wah-O7-ewp">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="VAT-2K-EDl"/>
+                        <outlet property="delegate" destination="-1" id="T9W-Nt-IwW"/>
+                    </connections>
+                </tableView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="AFd-v2-A4R">
                     <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
                     <color key="color" name="backButton"/>
@@ -28,7 +39,11 @@
             <color key="backgroundColor" name="white"/>
             <constraints>
                 <constraint firstItem="AFd-v2-A4R" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="4o1-D2-QNk"/>
+                <constraint firstAttribute="bottom" secondItem="wah-O7-ewp" secondAttribute="bottom" id="4s2-sq-YoY"/>
+                <constraint firstAttribute="trailing" secondItem="wah-O7-ewp" secondAttribute="trailing" id="Llb-UK-IHN"/>
                 <constraint firstItem="AFd-v2-A4R" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="c91-Mz-GKX"/>
+                <constraint firstItem="wah-O7-ewp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nLm-gE-hRn"/>
+                <constraint firstItem="wah-O7-ewp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qgd-in-foo"/>
             </constraints>
             <point key="canvasLocation" x="77" y="21"/>
         </view>
@@ -40,5 +55,8 @@
         <namedColor name="white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
