@@ -37,6 +37,10 @@
 		6B450095295D736B0054CE19 /* AtosError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B450094295D736B0054CE19 /* AtosError.swift */; };
 		6B450097295D77640054CE19 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B450096295D77640054CE19 /* User.swift */; };
 		6B450099295D8E4F0054CE19 /* DateFormatter+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B450098295D8E4F0054CE19 /* DateFormatter+extensions.swift */; };
+		6B45009B295D92CC0054CE19 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45009A295D92CC0054CE19 /* DataService.swift */; };
+		6B45009D295D92F60054CE19 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45009C295D92F60054CE19 /* Article.swift */; };
+		6B45009F295D93D70054CE19 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45009E295D93D70054CE19 /* NetworkingError.swift */; };
+		6B4500A1295D9F7E0054CE19 /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4500A0295D9F7E0054CE19 /* Articles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		6B450094295D736B0054CE19 /* AtosError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtosError.swift; sourceTree = "<group>"; };
 		6B450096295D77640054CE19 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6B450098295D8E4F0054CE19 /* DateFormatter+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+extensions.swift"; sourceTree = "<group>"; };
+		6B45009A295D92CC0054CE19 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		6B45009C295D92F60054CE19 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		6B45009E295D93D70054CE19 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		6B4500A0295D9F7E0054CE19 /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +198,9 @@
 			children = (
 				6B450094295D736B0054CE19 /* AtosError.swift */,
 				6B450096295D77640054CE19 /* User.swift */,
+				6B45009C295D92F60054CE19 /* Article.swift */,
+				6B4500A0295D9F7E0054CE19 /* Articles.swift */,
+				6B45009E295D93D70054CE19 /* NetworkingError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				6B23F566295CA28D00E8A1ED /* UserService.swift */,
+				6B45009A295D92CC0054CE19 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -347,11 +359,15 @@
 				6B450099295D8E4F0054CE19 /* DateFormatter+extensions.swift in Sources */,
 				6B450097295D77640054CE19 /* User.swift in Sources */,
 				6B23F533295C875000E8A1ED /* AppDelegate.swift in Sources */,
+				6B4500A1295D9F7E0054CE19 /* Articles.swift in Sources */,
 				6B23F535295C875000E8A1ED /* SceneDelegate.swift in Sources */,
 				6B23F579295CB06700E8A1ED /* UserViewModel.swift in Sources */,
+				6B45009B295D92CC0054CE19 /* DataService.swift in Sources */,
 				6B450095295D736B0054CE19 /* AtosError.swift in Sources */,
 				6B23F55C295C90BC00E8A1ED /* UIWindow+extensions.swift in Sources */,
+				6B45009F295D93D70054CE19 /* NetworkingError.swift in Sources */,
 				6B23F567295CA28D00E8A1ED /* UserService.swift in Sources */,
+				6B45009D295D92F60054CE19 /* Article.swift in Sources */,
 				6B23F55E295C953000E8A1ED /* LoginViewModel.swift in Sources */,
 				6B23F561295C9FA500E8A1ED /* MainViewController.swift in Sources */,
 				6B23F564295C9FB900E8A1ED /* MainViewModel.swift in Sources */,

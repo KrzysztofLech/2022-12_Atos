@@ -4,7 +4,7 @@
 import Foundation
 
 internal enum AtosErrorType {
-    case emptyLoginField, wrongCredentials
+    case emptyLoginField, wrongCredentials, networking
 
     internal var title: String {
         switch self {
@@ -12,6 +12,8 @@ internal enum AtosErrorType {
             return Strings.LoginScreen.Errors.emptyFieldsTitle
         case .wrongCredentials:
             return Strings.LoginScreen.Errors.wrongCredentialsTitle
+        case .networking:
+            return Strings.MainScreen.Errors.apiProblemTitle
         }
     }
 
@@ -19,6 +21,8 @@ internal enum AtosErrorType {
         switch self {
         case .emptyLoginField, .wrongCredentials:
             return Strings.LoginScreen.Errors.message
+        case .networking:
+            return Strings.MainScreen.Errors.apiProblemMessage
         }
     }
 

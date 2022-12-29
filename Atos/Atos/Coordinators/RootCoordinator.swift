@@ -11,6 +11,7 @@ internal final class RootCoordinator: NSObject, Coordinator {
     private let window: UIWindow
 
     private var userService: UserServiceProtocol?
+    private let dataService: DataServiceProtocol
 
     private var loginViewController: UIViewController?
     private var tabBarController: TabBarController?
@@ -20,6 +21,7 @@ internal final class RootCoordinator: NSObject, Coordinator {
 
     internal init(windowScene: UIWindowScene) {
         self.window = UIWindow(windowScene: windowScene)
+        self.dataService = DataService()
     }
 
     // MARK: - Scenes methods -
@@ -48,7 +50,10 @@ internal final class RootCoordinator: NSObject, Coordinator {
         guard let userService else { return }
 
         // Main screen
-        let mainViewModel = MainViewModel(userService: userService)
+        let mainViewModel = MainViewModel(
+            userService: userService,
+            dataService: dataService
+        )
         let mainViewController = MainViewController(
             viewModel: mainViewModel,
             delegate: self

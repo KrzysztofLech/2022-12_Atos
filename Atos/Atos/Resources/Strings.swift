@@ -21,6 +21,11 @@ internal enum Strings {
     internal enum MainScreen {
         internal static let backButtonTitle = "Back"
         internal static let mainScreenTitle = "News's for %@"
+
+        internal enum Errors {
+            internal static let apiProblemTitle = "Downloading data problem"
+            internal static let apiProblemMessage = "Let's try again"
+        }
     }
 
     internal enum UserScreen {
