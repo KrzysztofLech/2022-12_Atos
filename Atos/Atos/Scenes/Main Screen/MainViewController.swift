@@ -34,6 +34,13 @@ internal class MainViewController: UIViewController {
         setupView()
         getData()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
+    }
 }
 
 private extension MainViewController {

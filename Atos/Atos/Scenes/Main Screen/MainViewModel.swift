@@ -35,7 +35,6 @@ internal class MainViewModel: MainViewModelProtocol {
     }
 
     internal func getArticles(completion: @escaping (AtosError?) -> Void) {
-
         dataService.fetchData { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -43,7 +42,7 @@ internal class MainViewModel: MainViewModelProtocol {
                     Logger.log(okText: "Downloaded \(articles.articles.count) articles")
                     self?.articles = articles.articles
                     completion(nil)
-                case .failure(let error as NetworkingError):
+                case .failure(let error):
                     Logger.log(error: error.rawValue)
                     completion(AtosErrorType.networking.error)
                 }

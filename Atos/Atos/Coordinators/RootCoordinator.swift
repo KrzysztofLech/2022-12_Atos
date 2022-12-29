@@ -73,8 +73,7 @@ internal final class RootCoordinator: NSObject, Coordinator {
     }
 
     private func showDetailsScreen(article: ArticleViewModel) {
-        let viewModel = DetailsViewModel(article: article)
-        let detailsViewController = DetailsViewController(viewModel: viewModel)
+        let detailsViewController = DetailsViewController(viewModel: article)
         mainViewNavigationController?.pushViewController(detailsViewController, animated: true)
     }
 
@@ -101,18 +100,6 @@ extension RootCoordinator: LoginViewControllerDelegate {
         showMainScreen() { [weak self] in
             self?.loginViewController = nil
         }
-    }
-
-    internal func loginWithError(_ error: AtosError) {
-        let alerController = UIAlertController(
-            title: error.title,
-            message: error.message,
-            preferredStyle: .alert
-        )
-        let alertAction = UIAlertAction(title: Strings.alertActionOkTitle, style: .default)
-        alerController.addAction(alertAction)
-
-        loginViewController?.present(alerController, animated: true)
     }
 }
 

@@ -25,7 +25,6 @@
 		6B23F569295CA59A00E8A1ED /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B23F568295CA59A00E8A1ED /* Logger.swift */; };
 		6B23F56C295CA8D600E8A1ED /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B23F56A295CA8D600E8A1ED /* DetailsViewController.swift */; };
 		6B23F56D295CA8D600E8A1ED /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B23F56B295CA8D600E8A1ED /* DetailsViewController.xib */; };
-		6B23F56F295CA8F400E8A1ED /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B23F56E295CA8F400E8A1ED /* DetailsViewModel.swift */; };
 		6B23F572295CAD9000E8A1ED /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B23F571295CAD9000E8A1ED /* TabBarController.swift */; };
 		6B23F576295CB00C00E8A1ED /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B23F574295CB00C00E8A1ED /* UserViewController.swift */; };
 		6B23F577295CB00C00E8A1ED /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B23F575295CB00C00E8A1ED /* UserViewController.xib */; };
@@ -67,7 +66,6 @@
 		6B23F568295CA59A00E8A1ED /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		6B23F56A295CA8D600E8A1ED /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		6B23F56B295CA8D600E8A1ED /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
-		6B23F56E295CA8F400E8A1ED /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		6B23F571295CAD9000E8A1ED /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		6B23F574295CB00C00E8A1ED /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		6B23F575295CB00C00E8A1ED /* UserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 		6B23F556295C8DEE00E8A1ED /* Details Screen */ = {
 			isa = PBXGroup;
 			children = (
-				6B23F56E295CA8F400E8A1ED /* DetailsViewModel.swift */,
 				6B23F56A295CA8D600E8A1ED /* DetailsViewController.swift */,
 				6B23F56B295CA8D600E8A1ED /* DetailsViewController.xib */,
 			);
@@ -373,7 +370,6 @@
 				6B23F54D295C8C1F00E8A1ED /* Strings.swift in Sources */,
 				6B23F572295CAD9000E8A1ED /* TabBarController.swift in Sources */,
 				6B450093295CED750054CE19 /* FrameView.swift in Sources */,
-				6B23F56F295CA8F400E8A1ED /* DetailsViewModel.swift in Sources */,
 				6B450099295D8E4F0054CE19 /* DateFormatter+extensions.swift in Sources */,
 				6B450097295D77640054CE19 /* User.swift in Sources */,
 				6B4500A5295DA4AD0054CE19 /* ArticleTableViewCell.swift in Sources */,

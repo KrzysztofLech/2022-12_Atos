@@ -33,4 +33,9 @@ internal enum Strings {
         internal static let nameTitle = "Name:"
         internal static let lastLoginTitle = "Last login:"
     }
+
+    internal enum DetailsScreen {
+        internal static let descriptionTitle = "Description:"
+        internal static let publishedTitle = "Published at:"
+    }
 }

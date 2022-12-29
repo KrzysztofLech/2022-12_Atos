@@ -29,7 +29,29 @@ internal struct ArticleViewModel {
             return author
         }
     }
+
+    // Too long string will be cut off
+    internal var screenTitle: String {
+        var string = author
+        if string.count > 15 {
+            string = string.prefix(15) + "..."
+        }
+        return string
+    }
+
     internal var title: String? {
         return article.title
+    }
+
+    internal var description: String? {
+        return article.description
+    }
+
+    internal var publishedAt: String? {
+        return article.publishedAt
+    }
+
+    internal var urlToImage: URL? {
+        return article.urlToImage
     }
 }

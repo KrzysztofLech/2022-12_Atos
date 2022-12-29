@@ -12,11 +12,11 @@ extension UINavigationBar {
         let textColor = UIColor.Atos.white ?? .white
         navBarAppearance.largeTitleTextAttributes = [
             .foregroundColor: textColor,
-            .font: UIFont.systemFont(ofSize: 27, weight: .medium)
+            .font: UIFont.systemFont(ofSize: 27, weight: .light)
         ]
         navBarAppearance.titleTextAttributes = [
             .foregroundColor: textColor,
-            .font: UIFont.systemFont(ofSize: 17, weight: .medium)
+            .font: UIFont.systemFont(ofSize: 17, weight: .light)
         ]
 
         let icon = UIImage(named: "BlankImage")
